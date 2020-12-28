@@ -1,0 +1,56 @@
+{
+  "@@context": "http://schema.org/extensions",
+  "@@type": "MessageCard",
+  "potentialAction": [
+    {
+      "@@type": "OpenUri",
+      "name": "Acessar Url",
+      "targets": [
+        {
+          "os": "default",
+          "uri": "@{items('For_each')['sourceMaterials'][1]}"
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "activityImage": "https://img.icons8.com/color/1600/circled-user-male-skin-type-1-2.png",
+      "activitySubtitle": "Novo Alerta",
+      "activityTitle": "@{items('For_each')?['title']}",
+      "facts": [
+        {
+          "name": "TenantID:",
+          "value": "@{items('For_each')?['azureTenantId']}"
+        },
+        {
+          "name": "Titulo:",
+          "value": "@{items('For_each')?['title']}"
+        },
+        {
+          "name": "Tipo de Conta:",
+          "value": "@{items('For_each_2')?['accountName']}"
+        },
+        {
+          "name": "Provedor:",
+          "value": "@{items('For_each')?['vendorInformation']?['provider']}"
+        },
+        {
+          "name": "Descrição:",
+          "value": "@{items('For_each')?['description']}"
+        },
+        {
+          "name": "Categoria:",
+          "value": "@{items('For_each')?['category']}"
+        },
+        {
+          "name": "Severidade:",
+          "value": "@{items('For_each')?['severity']}"
+        }
+      ],
+      "markdown": true
+    }
+  ],
+  "summary": "Novo Alerta de Segurança",
+  "themeColor": "d7000b"
+}
